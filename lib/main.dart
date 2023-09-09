@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_route_management/route/route_name.dart';
 import 'package:flutter_route_management/views/dashboard_screen.dart';
 import 'package:flutter_route_management/views/error_screen.dart';
+import 'package:flutter_route_management/views/home_screen.dart';
 import 'package:flutter_route_management/views/login_screen.dart';
 import 'package:flutter_route_management/views/profile_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -95,19 +96,44 @@ class MyApp extends StatelessWidget {
     //  ],
 
     ///if route not found
-    errorBuilder: (context, state) => ErrorScreen(),
-    redirect: (context, state) {
-      if (isLoggedIn) {
-        return "/text";
-      } else {
-        return "/";
-      }
-    },
+    // errorBuilder: (context, state) => ErrorScreen(),
+    // redirect: (context, state) {
+    //   if (isLoggedIn) {
+    //     return "/text";
+    //   } else {
+    //     return "/";
+    //   }
+    // },
+    // routes: [
+    //   GoRoute(path: "/", builder: (context, state) => LogInScreen()),
+    //   GoRoute(
+    //     path: "/dashboard",
+    //     builder: (context, state) => DashBoardScreen(),
+    //   ),
+    // ],
+
+    ///transition animation
     routes: [
-      GoRoute(path: "/", builder: (context, state) => LogInScreen()),
       GoRoute(
-        path: "/dashboard",
+        path: "/",
         builder: (context, state) => DashBoardScreen(),
+      ),
+      GoRoute(
+        path: "/home",
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: Duration(seconds: 4),
+            key: state.pageKey,
+            child: HomeScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
       ),
     ],
   );

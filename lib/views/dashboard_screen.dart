@@ -38,11 +38,14 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             // );
 
             ///Go Router query parameters
-            context.goNamed(RouteNames.profile, queryParameters: {
-              'name': "Injamul Haq",
-            });
+            // context.goNamed(RouteNames.profile, queryParameters: {
+            //   'name': "Injamul Haq",
+            // });
+
+            ///Go router transition animation
+            context.go("/home");
           },
-          child: Text("Profile Screen"),
+          child: Text("Home Screen"),
         ),
       ),
     );
