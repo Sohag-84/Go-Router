@@ -22,15 +22,17 @@ class MyApp extends StatelessWidget {
   }
 
   final GoRouter _router = GoRouter(
-    initialLocation: "/profile",
+   // initialLocation: "/profile",
     routes: [
       GoRoute(
         path: "/",
         builder: ((context, state) => DashBoardScreen()),
       ),
       GoRoute(
-        path: "/profile",
-        builder: ((context, state) => ProfileScreen()),
+        path: "/profile/:name",
+        builder: ((context, state) => ProfileScreen(
+          name: state.pathParameters["name"]!
+        )),
       ),
     ],
   );

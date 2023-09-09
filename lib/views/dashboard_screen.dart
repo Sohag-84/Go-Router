@@ -22,7 +22,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         child: ElevatedButton(
           onPressed: () {
             // GoRouter.of(context).go("/profile");
-            context.go("/profile");
+            final String name = "Sohag";
+            context.go("/profile/$name");
           },
           child: Text("Profile Screen"),
         ),
