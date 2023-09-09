@@ -22,16 +22,25 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
+            ///navigate with go router
             // GoRouter.of(context).go("/profile");
+
+            ///passing parameter to Route(Route Parameter)
             // const String name = "Sohag";
             // context.go("/profile/$name");
 
-            context.goNamed(
-              RouteNames.profile,
-              pathParameters: {
-                'name': "Injamul",
-              },
-            );
+            ///Named route in Go Router and pass parameter
+            // context.goNamed(
+            //   RouteNames.profile,
+            //   pathParameters: {
+            //     'name': "Injamul",
+            //   },
+            // );
+
+            ///Go Router query parameters
+            context.goNamed(RouteNames.profile, queryParameters: {
+              'name': "Injamul Haq",
+            });
           },
           child: Text("Profile Screen"),
         ),

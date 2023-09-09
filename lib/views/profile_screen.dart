@@ -18,8 +18,8 @@ class ProfileScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            //GoRouter.of(context).go("/");
-            //context.go('/');
+           ///details way: -> //GoRouter.of(context).go("/");
+           ///short way: ->  //context.go('/');
 
             context.goNamed(RouteNames.dashboard);
           },

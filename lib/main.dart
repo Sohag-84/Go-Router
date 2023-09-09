@@ -36,6 +36,25 @@ class MyApp extends StatelessWidget {
     //      )),
     //    ),
     //  ],
+
+    ///Named Route in Go Router
+    // routes: [
+    //   GoRoute(
+    //     name: RouteNames.dashboard,
+    //     path: "/",
+    //     builder: (context, state) => DashBoardScreen(),
+    //     routes: [
+    //       GoRoute(
+    //         name: RouteNames.profile,
+    //         path: "profile/:name",
+    //         builder: (context, state) =>
+    //             ProfileScreen(name: state.pathParameters['name']!),
+    //       ),
+    //     ],
+    //   ),
+    // ],
+
+    ///--> Go Router Query Parameters
     routes: [
       GoRoute(
         name: RouteNames.dashboard,
@@ -44,9 +63,9 @@ class MyApp extends StatelessWidget {
         routes: [
           GoRoute(
             name: RouteNames.profile,
-            path: "profile/:name",
+            path: "profile",
             builder: (context, state) =>
-                ProfileScreen(name: state.pathParameters['name']!),
+                ProfileScreen(name: state.uri.queryParameters['name']!),
           ),
         ],
       ),
