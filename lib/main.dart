@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_route_management/route/route_name.dart';
 import 'package:flutter_route_management/views/dashboard_screen.dart';
 import 'package:flutter_route_management/views/profile_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -22,17 +23,32 @@ class MyApp extends StatelessWidget {
   }
 
   final GoRouter _router = GoRouter(
-   // initialLocation: "/profile",
+    // initialLocation: "/profile",
+    //  routes: [
+    //    GoRoute(
+    //      path: "/",
+    //      builder: ((context, state) => DashBoardScreen()),
+    //    ),
+    //    GoRoute(
+    //      path: "/profile/:name",
+    //      builder: ((context, state) => ProfileScreen(
+    //        name: state.pathParameters["name"]!
+    //      )),
+    //    ),
+    //  ],
     routes: [
       GoRoute(
+        name: RouteNames.dashboard,
         path: "/",
-        builder: ((context, state) => DashBoardScreen()),
-      ),
-      GoRoute(
-        path: "/profile/:name",
-        builder: ((context, state) => ProfileScreen(
-          name: state.pathParameters["name"]!
-        )),
+        builder: (context, state) => DashBoardScreen(),
+        routes: [
+          GoRoute(
+            name: RouteNames.profile,
+            path: "profile/:name",
+            builder: (context, state) =>
+                ProfileScreen(name: state.pathParameters['name']!),
+          ),
+        ],
       ),
     ],
   );

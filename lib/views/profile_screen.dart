@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_route_management/route/route_name.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,7 +19,9 @@ class ProfileScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             //GoRouter.of(context).go("/");
-            context.go('/');
+            //context.go('/');
+
+            context.goNamed(RouteNames.dashboard);
           },
           child: Text("Dashboard Screen"),
         ),
