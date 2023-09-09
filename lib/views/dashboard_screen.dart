@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({super.key});
@@ -16,6 +17,15 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       appBar: AppBar(
         title: Text("Dashboard Screen"),
         centerTitle: true,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // GoRouter.of(context).go("/profile");
+            context.go("/profile");
+          },
+          child: Text("Profile Screen"),
+        ),
       ),
     );
   }

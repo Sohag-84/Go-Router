@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_route_management/views/dashboard_screen.dart';
-import 'package:flutter_route_management/views/home_screen.dart';
+import 'package:flutter_route_management/views/profile_screen.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
