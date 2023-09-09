@@ -123,6 +123,7 @@ class MyApp extends StatelessWidget {
         pageBuilder: (context, state) {
           return CustomTransitionPage(
             transitionDuration: Duration(seconds: 4),
+            fullscreenDialog: true,
             key: state.pageKey,
             child: HomeScreen(),
             transitionsBuilder:

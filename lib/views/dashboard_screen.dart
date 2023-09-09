@@ -43,7 +43,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             // });
 
             ///Go router transition animation
-            context.go("/home");
+            context.push("/home");
           },
           child: Text("Home Screen"),
         ),
